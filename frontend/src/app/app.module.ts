@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { OrderAddComponent } from './order-add/order-add.component';
@@ -22,6 +23,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: 'products',
