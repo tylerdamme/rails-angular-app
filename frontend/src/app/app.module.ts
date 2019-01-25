@@ -1,16 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ApiService } from './api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AppComponent } from './app.component';
 import { ProductAddComponent } from './product-add/product-add.component';
-import { OrderAddComponent } from './order-add/order-add.component';
-import { CustomerAddComponent } from './customer-add/customer-add.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { OrderAddComponent } from './order-add/order-add.component';
 import { OrderListComponent } from './order-list/order-list.component';
+import { CustomerAddComponent } from './customer-add/customer-add.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 
+import { ApiService } from './api.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: 'products',
