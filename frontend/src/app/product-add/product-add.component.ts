@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
+import { Router } from "@angular/router";
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,7 +13,7 @@ export class ProductAddComponent implements OnInit {
 
   public product: Product = new Product();
 
-  constructor(public apiService: ApiService, public acRoute: ActivatedRoute) { }
+  constructor(private router: Router, public apiService: ApiService, public acRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.acRoute.params.subscribe((data : any) => {
@@ -34,13 +35,15 @@ export class ProductAddComponent implements OnInit {
       this.apiService.update("products/" + this.product.id, this.product).subscribe((r) => {
         console.log(r);
         alert("Product updated!");
+        this.router.navigateByUrl("/products");
       });
     }
     else {
       this.apiService.post("products", this.product).subscribe((r) => {
         console.log(r);
         this.product = new Product();
-        alert("Product Succesfully Added!");
+        alert("Product Successfully Added!");
+        this.router.navigateByUrl("/products");
       });
     }
   }
